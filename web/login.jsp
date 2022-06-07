@@ -11,13 +11,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sign Up Form by Colorlib</title>
+        <title>Login Page</title>
 
         <!-- Font Icon -->
-        <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
+        <link href="loginPage/colorlib-regform-7/fonts/material-icon/css/material-design-iconic-font.min.css" rel="stylesheet" type="text/css"/>
         <!-- Main css -->
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="loginPage/colorlib-regform-7/css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="main">
@@ -26,27 +25,27 @@
                 <div class="container">
                     <div class="signin-content">
                         <div class="signin-image">
-                            <figure><img src="./images/login-img1.jpg" alt="sing up image"></figure>
+                            <figure><img src="loginPage/colorlib-regform-7/images/login-img1.jpg" alt="sing up image"></figure>
                             <a href="register.jsp" class="signup-image-link">Create an account</a>
                         </div>
 
                         <div class="signin-form">
                             <h2 class="form-title">Login</h2>
-                            <form method="POST" class="register-form" id="login-form">
+                            <form method="POST" action="MainController" class="register-form" id="login-form" ">
                                 <div class="form-group">
                                     <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                    <input type="text" name="userID" id="your_name" placeholder="Your Name"/>
                                 </div>
                                 <div class="form-group">
                                     <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                    <input type="password" name="password"  placeholder="Password"/>
                                 </div>
                                 <div class="form-group">
                                     <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                     <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                                 </div>
                                 <div class="form-group form-button">
-                                    <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                                    <input type="submit" name="action" id="signin" class="form-submit" value="Login"/>
                                 </div>
                             </form>
                             <div class="social-login">

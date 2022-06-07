@@ -4,6 +4,7 @@
     Author     : Lenovo Legion
 --%>
 
+<%@page import="sample.user.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,6 +49,10 @@
               crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
+        <%
+            UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
+        %>
+
         <!-- top header -->
         <div class="header-top">
             <div class="container">
@@ -156,9 +161,20 @@
                         <li class=""><a href="expert.jsp">CHUYÊN GIA</a></li>
                         <li class=""><a href="booking.jsp">ĐẶT LỊCH</a></li>
                     </ul>
+
+                    <% if (loginUser == null) {
+                    %>
                     <div class="login-icon ml-2">
                         <a class="user" href="login.jsp"> LOGIN </a>
                     </div>
+                    <% } else {
+                    %>
+                    <form action="MainController" class="login-icon ml-2">
+                        <input type="submit" name="action" value="Logout"/>
+                    </form>
+                    <%
+                        }
+                    %>
                 </nav>
                 <div class="clear"></div>
                 <!-- //nav -->

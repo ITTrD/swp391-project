@@ -22,12 +22,13 @@ import sample.user.UserDTO;
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
 
-    private static final String ERROR ="login.jsp";
-    private static final String AD ="AD";
-    private static final String ADMIN_PAGE ="about.jsp";
-    private static final String PT ="PT";
-    private static final String PATIENT_PAGE ="expert.jsp";
-
+    private static final String ERROR = "login.jsp";
+    private static final String AD = "AD";
+    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String PT = "PT";
+    private static final String PATIENT_PAGE = "index.jsp";
+    private static final String DR = "DR";
+    private static final String DOCTOR_PAGE = "doctor.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,24 +39,26 @@ public class LoginController extends HttpServlet {
             String password = request.getParameter("password");
             UserDAO dao = new UserDAO();
             UserDTO loginUser = dao.checkLogin(userID, password);
-            if(loginUser!=null){
+            if (loginUser != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("LOGIN_USER", loginUser);
                 String roleID = loginUser.getRoleID();
                 if (AD.equals(roleID)) {
                     url = ADMIN_PAGE;
-                }else if(PT.equals(roleID)){
+                } else if (PT.equals(roleID)) {
                     url = PATIENT_PAGE;
-                } else{
-                    request.setAttribute("ERROR","Your role is not support !");
+                } else if (DR.equals(roleID)) {
+                    url = DOCTOR_PAGE;
+                } else {
+                    request.setAttribute("ERROR", "Your role is not support !");
                 }
-            }else{
+            } else {
                 request.setAttribute("ERROR", "Incorrect User ID or Password");
             }
 
         } catch (Exception e) {
-            log("Error at LoginController: " +e.toString());
-        }finally{
+            log("Error at LoginController: " + e.toString());
+        } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

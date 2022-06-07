@@ -152,7 +152,7 @@
                         <li class=""><a href="booking.jsp">ĐẶT LỊCH</a></li>
                     </ul>
                     <div class="login-icon ml-2">
-                        <a class="user" href="./loginPage/colorlib-regform-7/login.jsp"> LOGIN </a>
+                        <a class="user" href="login.jsp"> LOGIN </a>
                     </div>
                 </nav>
                 <div class="clear"></div>

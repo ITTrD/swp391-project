@@ -25,8 +25,8 @@ public class LoginController extends HttpServlet {
     private static final String ERROR ="login.jsp";
     private static final String AD ="AD";
     private static final String ADMIN_PAGE ="about.jsp";
-    private static final String US ="US";
-    private static final String USER_PAGE ="expert.jsp";
+    private static final String PT ="PT";
+    private static final String PATIENT_PAGE ="expert.jsp";
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,8 +44,8 @@ public class LoginController extends HttpServlet {
                 String roleID = loginUser.getRoleID();
                 if (AD.equals(roleID)) {
                     url = ADMIN_PAGE;
-                }else if(US.equals(roleID)){
-                    url = USER_PAGE;
+                }else if(PT.equals(roleID)){
+                    url = PATIENT_PAGE;
                 } else{
                     request.setAttribute("ERROR","Your role is not support !");
                 }

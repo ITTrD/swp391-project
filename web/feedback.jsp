@@ -260,7 +260,7 @@
                                     <div class="input-group">
                                         <div class="form-outline">
                                             <input type="search" id="form1" class="form-control"
-                                                   placeholder="Tìm kiếm bác sĩ...">
+                                                   placeholder="Tìm kiếm feedback...">
                                         </div>
                                         <button type="button" class="btn btn-success">
                                             <i class="fas fa-search"></i>
@@ -273,9 +273,10 @@
                                                 <tr>
                                                     <th class="border-top-0">ID</th>
                                                     <th class="border-top-0">Họ tên</th>
-                                                    <th class="border-top-0">Giới tính</th>
-                                                    <th class="border-top-0">Chuyên môn</th>
-                                                    <th class="border-top-0">Trạng thái</th>
+                                                    <th class="border-top-0">Email</th>
+                                                    <th class="border-top-0">Số sao</th>
+                                                    <th class="border-top-0">Đánh giá</th>
+                                                    <th class="border-top-0">Ngày</th>
                                                     <th class="border-top-0"></th>
                                                 </tr>
                                             </thead>
@@ -283,60 +284,84 @@
                                                 <tr>
                                                     <td>1</td>
                                                     <td>Võ Văn Tự Hiến</td>
-                                                    <td>Nam</td>
-                                                    <td>Cấy ghép nha khoa</td>
-                                                    <td>Active</td>
+                                                    <td>son.tung.tn12321@gmail.com</td>
+                                                    <td>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-regular fa-star" style="color: gold;"></i>
+                                                    </td>
+                                                    <td>Dịch vụ khá ổn</td>
+                                                    <td>07/06/2022</td>
                                                     <td>
                                                         <a href=""
                                                            class="btn btn-success d-none d-md-inline-block text-white"
                                                            target="_blank">
                                                             <i class="fa-regular fa-eye"></i>
-                                                            Chi tiết
+                                                            Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
                                                     <td>Nguyễn Thị Thu Thủy</td>
-                                                    <td>Nữ</td>
-                                                    <td>Chỉnh nha</td>
-                                                    <td>Active</td>
+                                                    <td>son.tung.tn12321@gmail.com</td>
+                                                    <td>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                    </td>
+                                                    <td>Dịch vụ khá ổn</td>
+                                                    <td>07/06/2022</td>
                                                     <td>
                                                         <a href=""
                                                            class="btn btn-success d-none d-md-inline-block text-white"
                                                            target="_blank">
                                                             <i class="fa-regular fa-eye"></i>
-                                                            Chi tiết
+                                                            Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
                                                     <td>Đặng Thị Thu Hằng</td>
-                                                    <td>Nữ</td>
-                                                    <td>Phục hình răng</td>
-                                                    <td>Active</td>
+                                                    <td>son.tung.tn12321@gmail.com</td>
+                                                    <td><i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i></td>
+                                                    <td>Dịch vụ rất tốt</td>
+                                                    <td>07/06/2022</td>
                                                     <td>
                                                         <a href=""
                                                            class="btn btn-success d-none d-md-inline-block text-white"
                                                            target="_blank">
                                                             <i class="fa-regular fa-eye"></i>
-                                                            Chi tiết
+                                                            Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>4</td>
                                                     <td>Vũ Đức Hùng</td>
-                                                    <td>Nam</td>
-                                                    <td>Chăm sóc nha khoa</td>
-                                                    <td>Active</td>
+                                                    <td>son.tung.tn12321@gmail.com</td>
+                                                    <td><i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                                                        <i class="fa-solid fa-star" style="color: gold;"></i></td>
+                                                    <td>Dịch vụ rất tốt</td>
+                                                    <td>07/06/2022</td>
                                                     <td>
                                                         <a href=""
                                                            class="btn btn-success d-none d-md-inline-block text-white"
                                                            target="_blank">
                                                             <i class="fa-regular fa-eye"></i>
-                                                            Chi tiết
+                                                            Xóa
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -380,9 +405,9 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-        <script src="assets/plugins/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery/dist1/jquery.min.js" type="text/javascript"></script>
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/plugins/bootstrap/dist1/js/bootstrap.bundle.min.js"></script>
         <script src="html/js/app-style-switcher.js" type="text/javascript"></script>
         <!--Wave Effects -->
         <script src="html/js/waves.js"></script>

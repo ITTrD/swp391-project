@@ -21,8 +21,8 @@
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
         <!-- chartist CSS -->
-        <link href="assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet" type="text/css"/>
-        <link href="assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/chartist-js/dist1/chartist.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/plugins/chartist-js/dist1/chartist-init.css" rel="stylesheet" type="text/css"/>
         <link href="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet" type="text/css"/>
         <!--This page css - Morris CSS -->
         <link href="assets/plugins/c3-master/c3.min.css" rel="stylesheet" type="text/css"/>
@@ -883,9 +883,9 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="assets/plugins/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/jquery/dist1/jquery.min.js" type="text/javascript"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap/dist1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
     <script src="html/js/app-style-switcher.js" type="text/javascript"></script>
     <!--Wave Effects -->
     <script src="html/js/waves.js" type="text/javascript"></script>
@@ -895,7 +895,7 @@
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!-- chartist chart -->
-    <script src="assets/plugins/chartist-js/dist/chartist.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/chartist-js/dist1/chartist.min.js" type="text/javascript"></script>
     <script src="assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js" type="text/javascript"></script>
     <!--c3 JavaScript -->
     <script src="assets/plugins/d3/d3.min.js" type="text/javascript"></script>

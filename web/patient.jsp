@@ -260,7 +260,7 @@
                                     <div class="input-group">
                                         <div class="form-outline">
                                             <input type="search" id="form1" class="form-control"
-                                                   placeholder="Tìm kiếm bác sĩ...">
+                                                   placeholder="Tìm kiếm bệnh nhân...">
                                         </div>
                                         <button type="button" class="btn btn-success">
                                             <i class="fas fa-search"></i>
@@ -380,9 +380,9 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
-        <script src="assets/plugins/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery/dist1/jquery.min.js" type="text/javascript"></script>
         <!-- Bootstrap tether Core JavaScript -->
-        <script src="assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/plugins/bootstrap/dist1/js/bootstrap.bundle.min.js"></script>
         <script src="html/js/app-style-switcher.js" type="text/javascript"></script>
         <!--Wave Effects -->
         <script src="html/js/waves.js"></script>

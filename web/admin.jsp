@@ -397,7 +397,7 @@
                                     <div class="card-body">
                                         <div class="profiletimeline border-start-0">
                                             <div class="sl-item">
-                                                <div class="sl-left"> <img src="../assets/images/users/1.jpg" alt="user"
+                                                <div class="sl-left"> <img src="assets/images/users/1.jpg" alt="user"
                                                                            class="img-circle"> </div>
                                                 <div class="sl-right">
                                                     <div><a href="#" class="link">John Doe</a> <span class="sl-date">5

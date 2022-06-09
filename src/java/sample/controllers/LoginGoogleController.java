@@ -7,39 +7,71 @@ package sample.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import sample.user.UserDAO;
+import sample.user.UserDTO;
+import sample.user.UserGoogleDTO;
+import sample.utils.GoogleUtils;
 
 /**
  *
  * @author Xqy
  */
-public class MainController extends HttpServlet {
+@WebServlet(name = "LoginGoogleController", urlPatterns = {"/LoginGoogleController"})
+public class LoginGoogleController extends HttpServlet {
 
-    private static final String ERROR = "error.jsp";
-    //Login and logout
-    private static final String LOGIN = "Login";
-    private static final String LOGIN_CONTROLLER = "LoginController";
-    private static final String LOGOUT = "Logout";
-    private static final String LOGOUT_CONTROLLER = "LogoutController";
+    private static final String ERROR = "login.jsp";
+    private static final String AD = "AD";
+    private static final String ADMIN_PAGE = "admin.jsp";
+    private static final String DR = "DR";
+    private static final String DR_PAGE = "doctor.jsp";
+    private static final String PT = "PT";
+    private static final String PT_PAGE = "index.jsp";
+    private static final long serialVersionUID = 1L;
+
+    public LoginGoogleController() {
+        super();
+    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         try {
-            String action = request.getParameter("action");
-            if (LOGIN.equals(action)) {
-                url = LOGIN_CONTROLLER;
-            } else if (LOGOUT.equals(action)) {
-                url = LOGOUT_CONTROLLER;
+            String code = request.getParameter("code");
+            if (code != null || !code.isEmpty()) {
+                String accessToken = GoogleUtils.getToken(code);
+                UserGoogleDTO loginGoogle = GoogleUtils.getUserInfo(accessToken);
+                String email = loginGoogle.getEmail();
+                UserDAO dao = new UserDAO();
+                UserDTO loginUser = dao.checkLoginGG(email);
+                if (loginUser != null) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("LOGIN_USER", loginUser);
+                    String roleID = loginUser.getRoleID();
+                    if (AD.equals(roleID)) {
+                        url = ADMIN_PAGE;
+                    } else if (DR.equals(roleID)) {
+                        url = DR_PAGE;
+                    } else if (PT.equals(roleID)) {
+                        url = PT_PAGE;
+                    } else {
+                        request.setAttribute("ERROR", "Your role is not support !");
+                    }
+                } else {
+                    request.setAttribute("ERROR", "Incorrect User ID or Password");
+                }
             }
         } catch (Exception e) {
-            log("Error at MainController: " + e.toString());
+            log("Error at LoginGoogleController" + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

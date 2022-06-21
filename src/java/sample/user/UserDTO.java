@@ -27,6 +27,15 @@ public class UserDTO {
     public UserDTO() {
     }
 
+    public UserDTO(String fullName) {
+        this.fullName = fullName;
+    }
+    
+    public UserDTO(String fullName, String gender) {
+        this.fullName = fullName;
+        this.gender = gender;
+    }
+
     public String getUserID() {
         return userID;
     }
@@ -120,6 +129,26 @@ public class UserDTO {
         this.password = password;
         this.fullName = fullName;
         this.roleID = roleID;
+        this.gender = gender;
+        this.address = address;
+        this.image = image;
+        this.birthday = birthday;
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+    }
+    public UserDTO(String userID,  String fullName,  String gender,   String email, String phone, boolean status) {
+        this.userID = userID;        
+        this.fullName = fullName;        
+        this.gender = gender;       
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+    }
+    
+    public UserDTO(String userID,  String fullName, String gender, String address, String image, Date birthday, String email, String phone, boolean status) {
+        this.userID = userID;        
+        this.fullName = fullName;     
         this.gender = gender;
         this.address = address;
         this.image = image;

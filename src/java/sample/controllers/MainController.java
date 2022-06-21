@@ -23,7 +23,29 @@ public class MainController extends HttpServlet {
     private static final String LOGIN_CONTROLLER = "LoginController";
     private static final String LOGOUT = "Logout";
     private static final String LOGOUT_CONTROLLER = "LogoutController";
+    private static final String SHOW_DOCTOR = "Show";
+    private static final String SHOW_DOCTOR_CONTROLLER = "ShowDoctorController";
+    private static final String SEARCH_DOCTOR = "Search";
+    private static final String SEARCH_DOCTOR_CONTROLLER = "SearchDoctorController";  
+    private static final String ADD_DOCTOR = "AddDoctor";
+    private static final String ADD_DOCTOR_CONTROLLER = "AddDoctorController";        
+    private static final String DELETE_DOCTOR = "Delete";
+    private static final String DELETE_DOCTOR_CONTROLLER = "DeleteDoctorController";
 
+    private static final String SHOW_ALL_PATIENT = "ShowAllPatient";
+    private static final String SHOW_ALL_PATIENT_CONTROLLER = "ShowPatientController"; 
+    private static final String SEARCH_PATIENT = "Tìm kiếm";
+    private static final String SEARCH_PATIENT_CONTROLLER = "SearchPatientController";
+    private static final String DELETE_PATIENT = "Xóa";
+    private static final String DELETE_PATIENT_CONTROLLER = "DeletePatientController";
+
+    private static final String SHOW_BOOKING = "ShowBooking";
+    private static final String SHOW_BOOKING_CONTROLLER = "ShowBookingController";    
+    private static final String DELETE_BOOKING = "Xóa lịch hẹn";
+    private static final String  DELETE_BOOKING_CONTROLLER = "DeleteBookingController"; 
+    
+    private static final String SEARCH_BOOKING = "Search Booking";
+    private static final String SEARCH_BOOKING_CONTROLLER = "SearchBookingController";         
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -34,6 +56,27 @@ public class MainController extends HttpServlet {
                 url = LOGIN_CONTROLLER;
             } else if (LOGOUT.equals(action)) {
                 url = LOGOUT_CONTROLLER;
+            } else if(ADD_DOCTOR.equals(action)){
+                url = ADD_DOCTOR_CONTROLLER;
+            }
+            else if(SEARCH_DOCTOR.equals(action)){
+                url = SEARCH_DOCTOR_CONTROLLER;
+            }else if(SHOW_DOCTOR.equals(action)){
+                url = SHOW_DOCTOR_CONTROLLER;
+            } else if(DELETE_DOCTOR.equals(action)){
+                url = DELETE_DOCTOR_CONTROLLER;
+            } else if(SHOW_ALL_PATIENT.equals(action)){
+                url = SHOW_ALL_PATIENT_CONTROLLER;
+            } else if(SEARCH_PATIENT.equals(action)){
+                url = SEARCH_PATIENT_CONTROLLER;
+            } else if(DELETE_PATIENT.equals(action)){
+                url = DELETE_PATIENT_CONTROLLER;
+            } else if(SHOW_BOOKING.equals(action)){
+                url = SHOW_BOOKING_CONTROLLER;
+            } else if(DELETE_BOOKING.equals(action)){
+                url = DELETE_BOOKING_CONTROLLER;
+            } else if(SEARCH_BOOKING.equals(action)){
+                url = SEARCH_BOOKING_CONTROLLER;
             }
         } catch (Exception e) {
             log("Error at MainController: " + e.toString());

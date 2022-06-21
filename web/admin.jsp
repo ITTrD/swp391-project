@@ -166,11 +166,14 @@
                                                          href="setting.jsp" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                         class="hide-menu">Quản lí tài khoản</span></a></li>
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                                         href="doctor.jsp" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                                         href="MainController?action=Show" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                         class="hide-menu">Quản lí bác sĩ</span></a></li>
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                                         href="patient.jsp" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                                         href="MainController?action=ShowAllPatient" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                         class="hide-menu">Quản lí bệnh nhân</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                                         href="MainController?action=ShowBooking" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
+                                        class="hide-menu">Quản lí lịch hẹn</span></a></li>            
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                                          href="feedback.jsp" aria-expanded="false"><i class="mdi me-2 mdi-table"></i><span
                                         class="hide-menu">FeedBack</span></a></li>

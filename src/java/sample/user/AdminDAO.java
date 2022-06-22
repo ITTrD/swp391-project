@@ -711,6 +711,28 @@ public class AdminDAO {
         }
         return list;
     }
+    public  List<DoctorDTO> getListByPage(List<DoctorDTO> list, int start,int end){
+        List<DoctorDTO> arr = new ArrayList<>();
+        for (int i = start  ; i < end; i++) {
+            arr.add(list.get(i));
+        }
+        return arr;
+    }
+    public  List<UserDTO> getListPatientByPage(List<UserDTO> list, int start,int end){
+        List<UserDTO> arr = new ArrayList<>();
+        for (int i = start  ; i < end; i++) {
+            arr.add(list.get(i));
+        }
+        return arr;
+    }
+    public  List<BookingDTO> getListBookingByPage(List<BookingDTO> list, int start,int end){
+        List<BookingDTO> arr = new ArrayList<>();
+        for (int i = start  ; i < end; i++) {
+            arr.add(list.get(i));
+        }
+        return arr;
+    }
+    
     
 //    public List<BookingDTO> getListAllAppointmentBookingversion2() throws SQLException {
 //        List<BookingDTO> list = new ArrayList<>();

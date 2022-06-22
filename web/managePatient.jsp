@@ -3,7 +3,8 @@
     Created on : Jun 19, 2022, 1:12:45 PM
     Author     : QUANG VAN
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.util.List"%>
 <%@page import="sample.user.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,6 +14,26 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manage Patient Page</title>
     </head>
+    <style>
+
+        .pagination{
+            display: inline-block;
+        }
+        .pagina a{
+            color: black;
+            font-size: 22px;
+            float: left ;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        .pagination a.active{
+            background-color: #4CAF50;
+            color: while;
+        }
+        .pagination a:hover:not(.active){
+            background-color: chocolate;
+        }
+    </style>
     <body>
         <%
             UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
@@ -41,6 +62,12 @@
             if (list != null) {
                 if (!list.isEmpty()) {
         %>
+        <c:set var="page" value="${sessionScope.page}"/>
+        <div class="pagination">
+            <c:forEach begin="${1}" end="${sessionScope.number}" var="i">
+                <a class="${i==page?"active":""}" href="MainController?action=ShowAllPatient&page=${i}">${i}</a>
+            </c:forEach>
+        </div>
         <table border="1">
             <thead>
                 <tr>

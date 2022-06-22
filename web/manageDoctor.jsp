@@ -4,7 +4,8 @@
     Author     : QUANG VAN
 --%>
 
-<
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="sample.user.DoctorDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="sample.user.UserDTO"%>
@@ -15,19 +16,37 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manage Doctor Page</title>
     </head>
+    <style>
+
+        .pagination{
+            display: inline-block;
+        }
+        .pagina a{
+            color: black;
+            font-size: 22px;
+            float: left ;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        .pagination a.active{
+            background-color: #4CAF50;
+            color: while;
+        }
+        .pagination a:hover:not(.active){
+            background-color: chocolate;
+        }
+    </style>
     <body>
         <%
             UserDTO loginUser = (UserDTO) session.getAttribute("LOGIN_USER");
             if (loginUser == null || !loginUser.getRoleID().equals("AD")) {
                 response.sendRedirect("login.jsp");
             }
-            
-           
-                    
+
             String search = request.getParameter("search");
             if (search == null) {
                 search = "";
-                
+
             }
         %>
 
@@ -38,16 +57,22 @@
 
             </form>
         </div>
-                
+
     </div>
-            <div class="addNew">
-                <a href="MainController?action=AddDoctor">Thêm Bác sĩ</a>
-            </div>
+    <div class="addNew">
+        <a href="MainController?action=AddDoctor">Thêm Bác sĩ</a>
+    </div>
     <div class="table-responsive">
         <%  List<DoctorDTO> list = (List<DoctorDTO>) session.getAttribute("LIST_DOCTOR");
             if (list != null) {
                 if (!list.isEmpty()) {
         %>
+        <c:set var="page" value="${sessionScope.page}"/>
+        <div class="pagination">
+            <c:forEach begin="${1}" end="${sessionScope.number}" var="i">
+                <a class="${i==page?"active":""}" href="MainController?action=Show&page=${i}">${i}</a>
+            </c:forEach>
+        </div>
         <table border="1">
             <thead>
                 <tr>
@@ -127,5 +152,6 @@
             }
         %> 
     </div>
+    
 </body>
 </html>

@@ -33,8 +33,25 @@ public class ShowPatientController extends HttpServlet {
         try {
             AdminDAO dao = new AdminDAO();            
             List<UserDTO> list = dao.getListAllPatient();
+            
+            int page, numperpage =5;
+            int size = list.size();
+            int number = (size%5==0?(size/5):(size/5)) + 1;
+            String xpage = request.getParameter("page");
+            if(xpage == null){
+                page = 1;
+            } else {
+                page = Integer.parseInt(xpage);
+            }
+            int start, end;
+            start = (page-1) * numperpage;
+            end = Math.min(page*numperpage, size);
+            List<UserDTO> listAllPatient = dao.getListPatientByPage(list, start, end);
             HttpSession session = request.getSession();
-            session.setAttribute("LIST_ALL_PATIENT", list);
+            session.setAttribute("LIST_ALL_PATIENT", listAllPatient);
+            session.setAttribute("page", page);
+            session.setAttribute("number", number);
+            
             url = SUCESSFUL;
         } catch (Exception e) {
             log("Error at DisplayCUSController: " + e.toString());

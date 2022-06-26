@@ -3,7 +3,8 @@
     Created on : Jun 6, 2022, 12:14:03 PM
     Author     : Lenovo Legion
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="sample.user.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -636,6 +637,10 @@
             <a href="#home" class="move-top">
                 <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
             </a>
+        </div>
+        <div clas="footer">
+            <a href="#">Creae with SimpleSite</a>
+            <p>${view}</p>
         </div>
         <!-- move top -->
         <!-- JS bootstrap banner -->

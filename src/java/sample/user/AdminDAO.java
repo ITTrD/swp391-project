@@ -392,7 +392,7 @@ public class AdminDAO {
         return date;
     }
 
-    public int totalOfBookingByStatusInOneMonth(String status, Date date1, Date date2)
+    public int totalOfBookingByStatusInOneWeek(String status, Date date1, Date date2)
             throws SQLException, ClassNotFoundException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -550,6 +550,78 @@ public class AdminDAO {
         }
     }
 
+    public int getNumberOfView() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            conn = DBUtils.getConnection();
+            String sql = "SELECT * FROM [View] ";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt("viewed");
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+    public void  updateNumberOfView() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            conn = DBUtils.getConnection();
+            String sql = "update [view] set viewed = viewed + 1 ";
+            ps = conn.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
+    }
+    public int getNumberOfPatient() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            conn = DBUtils.getConnection();
+            String sql = "SELECT COUNT(*)FROM Users where roleID like 'PT' and status = 1 ";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+    public int getNumberOfBooking() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int count = 0;
+        try {
+            conn = DBUtils.getConnection();
+            String sql = "select count(*) from Booking where status = 1 ";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
     public List<CategoryServiceDTO> getCategoryService() throws SQLException {
         List<CategoryServiceDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -566,9 +638,9 @@ public class AdminDAO {
                     String categoryID = rs.getString("categoryID");
                     String categotyName = rs.getString("categoryName");
                     String serviceID = rs.getString("serviceID");
-                    String serviceName = rs.getString("serviceName");                    
+                    String serviceName = rs.getString("serviceName");
                     String status = rs.getString("status");
-                    list.add(new CategoryServiceDTO(categoryID, categotyName, serviceID,serviceName, status));
+                    list.add(new CategoryServiceDTO(categoryID, categotyName, serviceID, serviceName, status));
                 }
             }
         } catch (Exception e) {
@@ -609,13 +681,13 @@ public class AdminDAO {
                 while (rs.next()) {
                     String bookingID = rs.getString("bookingID");
                     String patientName = rs.getString("fullName");
-                    String patientGender = rs.getString("gender");                   
-                    String serviceName = rs.getString("serviceName");                    
-                    String doctorName = rs.getString("fullName");                    
+                    String patientGender = rs.getString("gender");
+                    String serviceName = rs.getString("serviceName");
+                    String doctorName = rs.getString("fullName");
                     String dateBooking = rs.getString("dateBooking");
                     String timeBooking = rs.getString("timeBooking");
                     String slotName = rs.getString("slotName");
-                    String slotTime = rs.getString("slotTime");                    
+                    String slotTime = rs.getString("slotTime");
                     boolean status = rs.getBoolean("status");
 
                     list.add(new BookingDTO(bookingID, patientName, patientGender, serviceName, doctorName, dateBooking, timeBooking, slotName, slotTime, status));
@@ -637,7 +709,7 @@ public class AdminDAO {
         }
         return list;
     }
-    
+
     public boolean deteleAppointmentBooking(String bookingID) throws SQLException {
         boolean check = false;
         Connection conn = null;
@@ -661,7 +733,7 @@ public class AdminDAO {
         }
         return check;
     }
-    
+
     public List<BookingDTO> searchListAppointmentBooking(String search) throws SQLException {
         List<BookingDTO> list = new ArrayList<>();
         Connection conn = null;
@@ -685,13 +757,13 @@ public class AdminDAO {
                 while (rs.next()) {
                     String bookingID = rs.getString("bookingID");
                     String patientName = rs.getString("fullName");
-                    String patientGender = rs.getString("gender");                   
-                    String serviceName = rs.getString("serviceName");                    
-                    String doctorName = rs.getString("fullName");                    
+                    String patientGender = rs.getString("gender");
+                    String serviceName = rs.getString("serviceName");
+                    String doctorName = rs.getString("fullName");
                     String dateBooking = rs.getString("dateBooking");
                     String timeBooking = rs.getString("timeBooking");
                     String slotName = rs.getString("slotName");
-                    String slotTime = rs.getString("slotTime");                    
+                    String slotTime = rs.getString("slotTime");
                     boolean status = rs.getBoolean("status");
                     list.add(new BookingDTO(bookingID, patientName, patientGender, serviceName, doctorName, dateBooking, timeBooking, slotName, slotTime, status));
                 }
@@ -711,29 +783,31 @@ public class AdminDAO {
         }
         return list;
     }
-    public  List<DoctorDTO> getListByPage(List<DoctorDTO> list, int start,int end){
+
+    public List<DoctorDTO> getListByPage(List<DoctorDTO> list, int start, int end) {
         List<DoctorDTO> arr = new ArrayList<>();
-        for (int i = start  ; i < end; i++) {
+        for (int i = start; i < end; i++) {
             arr.add(list.get(i));
         }
         return arr;
     }
-    public  List<UserDTO> getListPatientByPage(List<UserDTO> list, int start,int end){
+
+    public List<UserDTO> getListPatientByPage(List<UserDTO> list, int start, int end) {
         List<UserDTO> arr = new ArrayList<>();
-        for (int i = start  ; i < end; i++) {
+        for (int i = start; i < end; i++) {
             arr.add(list.get(i));
         }
         return arr;
     }
-    public  List<BookingDTO> getListBookingByPage(List<BookingDTO> list, int start,int end){
+
+    public List<BookingDTO> getListBookingByPage(List<BookingDTO> list, int start, int end) {
         List<BookingDTO> arr = new ArrayList<>();
-        for (int i = start  ; i < end; i++) {
+        for (int i = start; i < end; i++) {
             arr.add(list.get(i));
         }
         return arr;
     }
-    
-    
+
 //    public List<BookingDTO> getListAllAppointmentBookingversion2() throws SQLException {
 //        List<BookingDTO> list = new ArrayList<>();
 //        Connection conn = null;

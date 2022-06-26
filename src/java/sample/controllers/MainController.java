@@ -44,8 +44,10 @@ public class MainController extends HttpServlet {
     private static final String DELETE_BOOKING = "Xóa lịch hẹn";
     private static final String  DELETE_BOOKING_CONTROLLER = "DeleteBookingController"; 
     
+    private static final String SHOWDASHBOARD = "ShowDashboard";
+    private static final String SHOWDASHBOARD_CONTROLLER = "ShowDashBoardController"; 
     private static final String SEARCH_BOOKING = "Search Booking";
-    private static final String SEARCH_BOOKING_CONTROLLER = "SearchBookingController";         
+    private static final String SEARCH_BOOKING_CONTROLLER = "SearchBookingController";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -77,6 +79,8 @@ public class MainController extends HttpServlet {
                 url = DELETE_BOOKING_CONTROLLER;
             } else if(SEARCH_BOOKING.equals(action)){
                 url = SEARCH_BOOKING_CONTROLLER;
+            } else if(SHOWDASHBOARD.equals(action)){
+                url = (SHOWDASHBOARD_CONTROLLER);
             }
         } catch (Exception e) {
             log("Error at MainController: " + e.toString());
